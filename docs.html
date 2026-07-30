@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Developer Docs & SDK Specs | Peer Pay</title>
+  <meta name="description" content="REST API reference, JavaScript/TypeScript SDK, and webhook documentation." />
+  <link rel="icon" type="image/x-icon" href="favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="navbar-peer">
+    <a href="index.html" class="brand-logo-peer">
+      <span>peer</span>
+      <span class="badge-pay">PAY</span>
+    </a>
+
+    <div class="desktop-nav-links" style="display: flex; align-items: center; gap: 16px;">
+      <nav class="nav-links-peer">
+        <a href="how-it-works.html" class="nav-link-peer">How It Works</a>
+        <a href="integrations.html" class="nav-link-peer">Integrations</a>
+        <a href="pricing.html" class="nav-link-peer">Pricing</a>
+        <a href="faq.html" class="nav-link-peer">FAQ</a>
+        <a href="docs.html" class="nav-link-peer active">Docs</a>
+      </nav>
+
+      <button class="btn-theme-toggle" onclick="togglePeerTheme()" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+        <span id="themeIcon">☀️</span>
+      </button>
+
+      <a href="dashboard.html" class="btn-peer-offwhite">Open Dashboard</a>
+    </div>
+  </header>
+
+  <div class="wrap-container" style="padding-top: 60px; padding-bottom: 120px;">
+    <h1 class="section-h2-peer">Developer SDK Specs</h1>
+    <p class="section-sub-peer">Integrate Peer Pay checkout into custom React, Vue, iOS, and Node.js applications.</p>
+
+    <div style="background: var(--bg-card-dark); border: 1px solid var(--stroke); border-radius: 20px; padding: 32px; margin-top: 32px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-family: var(--font-mono); font-size: 0.85rem;">
+        <span style="color: var(--text-muted);">src/peer-checkout.ts</span>
+        <span style="color: var(--accent-green);">npm i @peer-pay/sdk</span>
+      </div>
+
+      <pre style="background: #000000; border-radius: 12px; padding: 24px; color: #ffffff; font-family: var(--font-mono); font-size: 0.88rem; overflow-x: auto; line-height: 1.6;"><code>import { PeerPayCheckout } from '@peer-pay/sdk';
+
+const peer = new PeerPayCheckout({
+  apiKey: 'pk_live_peer_89a204f19b',
+  network: 'robinhood-mainnet',
+});
+
+async function handleCheckout() {
+  const session = await peer.createSession({
+    amount: 1337.00,
+    currency: 'USDC',
+    recipientWallet: '0x71C7656EC7ab88b098defB751B7401B5f6d8976F',
+    allowedApps: ['venmo', 'cashapp', 'revolut', 'robinhood']
+  });
+
+  peer.openModal(session.id);
+}</code></pre>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <rect width="512" height="512" fill="#0b0c0e" rx="128"/>
+  <text x="35%" y="58%" dominant-baseline="middle" text-anchor="middle" fill="#ffffff" font-family="'Syne', sans-serif" font-weight="800" font-size="110" letter-spacing="-4">peer</text>
+  <rect x="330" y="210" width="130" height="70" fill="#24252a" rx="16"/>
+  <text x="395" y="252" dominant-baseline="middle" text-anchor="middle" fill="#8e8e93" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="34" letter-spacing="2">PAY</text>
+</svg>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Peer Pay · First-Class Checkout for Underserved Businesses</title>
+  <meta name="description" content="Customers pay with their favorite everyday apps. Money goes straight to you the moment payment verifies on Robinhood Chain." />
+  <meta name="theme-color" content="#0b0c0e" />
+  <link rel="icon" type="image/x-icon" href="favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="navbar-peer">
+    <a href="index.html" class="brand-logo-peer">
+      <span>peer</span>
+      <span class="badge-pay">PAY</span>
+    </a>
+
+    <div class="desktop-nav-links" style="display: flex; align-items: center; gap: 16px;">
+      <nav class="nav-links-peer">
+        <a href="how-it-works.html" class="nav-link-peer">How It Works</a>
+        <a href="integrations.html" class="nav-link-peer">Integrations</a>
+        <a href="pricing.html" class="nav-link-peer">Pricing</a>
+        <a href="faq.html" class="nav-link-peer">FAQ</a>
+        <a href="docs.html" class="nav-link-peer">Docs</a>
+      </nav>
+
+      <button class="btn-theme-toggle" onclick="togglePeerTheme()" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+        <span id="themeIcon">☀️</span>
+      </button>
+
+      <a href="dashboard.html" class="btn-peer-offwhite">Open Dashboard</a>
+    </div>
+
+    <!-- Mobile Hamburger Button -->
+    <button class="btn-hamburger-peer" onclick="toggleMobileMenuPeer()" aria-label="Open menu">
+      <div>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+  </header>
+
+  <!-- Mobile Menu Drawer -->
+  <div id="mobileMenuDrawerPeer" class="mobile-menu-drawer-peer">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="index.html" class="brand-logo-peer">
+        <span>peer</span>
+        <span class="badge-pay">PAY</span>
+      </a>
+      <button style="background: transparent; border: none; font-size: 2rem; color: var(--text-primary);" onclick="toggleMobileMenuPeer()">&times;</button>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 20px; font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700; margin-top: 40px; text-transform: uppercase;">
+      <a href="how-it-works.html" style="color: var(--text-primary);" onclick="toggleMobileMenuPeer()">How It Works</a>
+      <a href="integrations.html" style="color: var(--text-secondary);" onclick="toggleMobileMenuPeer()">Integrations</a>
+      <a href="pricing.html" style="color: var(--text-secondary);" onclick="toggleMobileMenuPeer()">Pricing</a>
+      <a href="faq.html" style="color: var(--text-secondary);" onclick="toggleMobileMenuPeer()">FAQ</a>
+      <a href="docs.html" style="color: var(--text-secondary);" onclick="toggleMobileMenuPeer()">Docs</a>
+      <a href="dashboard.html" style="color: var(--accent-green);" onclick="toggleMobileMenuPeer()">Open Merchant Dashboard</a>
+    </div>
+
+    <div style="margin-top: auto;">
+      <a href="dashboard.html" class="btn-peer-offwhite" style="width: 100%; text-align: center;">Open Dashboard</a>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero-peer">
+    <div class="wrap-container">
+      <div class="hero-grid-peer">
+        
+        <!-- Left Hero Content -->
+        <div>
+          <h1 class="hero-h1-peer">
+            First-Class Checkout For Underserved Businesses.
+          </h1>
+
+          <p class="hero-subtitle-peer">
+            Customers pay with their favorite everyday apps. The money goes straight to you the moment the payment verifies on Robinhood Chain. No middleman, no setup costs, no headaches.
+          </p>
+
+          <div style="display: flex; gap: 16px; margin-bottom: 48px; flex-wrap: wrap;">
+            <a href="dashboard.html" class="btn-peer-offwhite">Create Your Account →</a>
+            <a href="how-it-works.html" class="btn-peer-dark">Talk to Sales</a>
+          </div>
+
+          <!-- Bottom Hero Stats Row -->
+          <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; border-top: 1px solid var(--stroke); padding-top: 24px;">
+            <div>
+              <div style="font-family: var(--font-syne); font-size: 2.2rem; font-weight: 800; color: var(--text-primary);">$0</div>
+              <div style="font-size: 0.88rem; color: var(--text-muted);">setup fees, no monthly minimums</div>
+            </div>
+
+            <div>
+              <div style="font-family: var(--font-syne); font-size: 2.2rem; font-weight: 800; color: var(--text-primary);">INSTANT</div>
+              <div style="font-size: 0.88rem; color: var(--text-muted);">you're paid the moment a payment verifies</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Interactive Checkout Terminal Widget -->
+        <div class="terminal-card-container">
+          
+          <!-- Main Desktop Checkout Card -->
+          <div class="desktop-checkout-card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+              <div>
+                <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #71717a; text-transform: uppercase; font-weight: 700;">PAYMENT</div>
+                <div style="font-family: var(--font-syne); font-size: 1.6rem; font-weight: 800; color: #0b0c0e;">1,337.00 USDC</div>
+              </div>
+
+              <!-- Interactive Step Indicator -->
+              <div class="step-bar-checkout" style="border: none; padding: 0; margin: 0; gap: 16px;">
+                <div id="stepTag1" class="step-item-chk active"><span>STEP 1</span><strong>Select</strong></div>
+                <div id="stepTag2" class="step-item-chk"><span>STEP 2</span><strong>Pay</strong></div>
+                <div id="stepTag3" class="step-item-chk"><span>STEP 3</span><strong>Verify</strong></div>
+              </div>
+            </div>
+
+            <!-- Dynamic Checkout Step Container -->
+            <div id="checkoutStepContainer">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #71717a; text-transform: uppercase; margin-bottom: 10px; font-weight: 700;">SELECT PAYMENT METHOD</div>
+
+              <div class="payment-method-row selected" onclick="selectPaymentMethod(this, 'Venmo')">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="width: 24px; height: 24px; border-radius: 6px; background: #008CFF; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.8rem;">v</span>
+                  <span style="font-weight: 600; font-size: 0.92rem; color: #0b0c0e;">Venmo</span>
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.82rem; color: #71717a;">USD 1,337</span>
+              </div>
+
+              <div class="payment-method-row" onclick="selectPaymentMethod(this, 'Cash App')">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="width: 24px; height: 24px; border-radius: 6px; background: #00D632; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.8rem;">$</span>
+                  <span style="font-weight: 600; font-size: 0.92rem; color: #0b0c0e;">Cash App</span>
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.82rem; color: #71717a;">USD 1,337</span>
+              </div>
+
+              <div class="payment-method-row" onclick="selectPaymentMethod(this, 'Revolut')">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="width: 24px; height: 24px; border-radius: 6px; background: #000000; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.8rem;">R</span>
+                  <span style="font-weight: 600; font-size: 0.92rem; color: #0b0c0e;">Revolut</span>
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.82rem; color: #71717a;">USD 1,337</span>
+              </div>
+
+              <div class="payment-method-row" onclick="selectPaymentMethod(this, 'Robinhood USD-R')">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="width: 24px; height: 24px; border-radius: 6px; background: #00f090; color: #000; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.8rem;">R</span>
+                  <span style="font-weight: 600; font-size: 0.92rem; color: #0b0c0e;">Robinhood Wallet</span>
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.82rem; color: #00b368; font-weight: 700;">USD-R 1,337</span>
+              </div>
+            </div>
+
+            <button id="btnStartPayment" class="btn-peer-offwhite" style="width: 100%; background: #0b0c0e; color: #ffffff; margin-top: 16px; font-size: 0.9rem;" onclick="startCheckoutPayment()">
+              Start Payment →
+            </button>
+
+            <div style="text-align: center; margin-top: 12px; font-family: var(--font-mono); font-size: 0.72rem; color: #71717a;">
+              Powered by <strong>Peer Pay • Robinhood Chain</strong>
+            </div>
+          </div>
+
+          <!-- Overlapping Mobile Phone Mockup -->
+          <div class="mobile-phone-mockup">
+            <div style="text-align: center; font-family: var(--font-mono); font-size: 0.65rem; color: #71717a; text-transform: uppercase; margin-bottom: 4px;">PAYMENT</div>
+            <div style="text-align: center; font-family: var(--font-syne); font-size: 1.3rem; font-weight: 800; color: #0b0c0e; margin-bottom: 12px;">88.88 USDC</div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <div style="border: 1px solid #e2e0d8; border-radius: 8px; padding: 8px; text-align: center; font-size: 0.7rem; font-weight: 700;">Revolut</div>
+              <div style="border: 1px solid #e2e0d8; border-radius: 8px; padding: 8px; text-align: center; font-size: 0.7rem; font-weight: 700;">Wise</div>
+              <div style="border: 1px solid #e2e0d8; border-radius: 8px; padding: 8px; text-align: center; font-size: 0.7rem; font-weight: 700;">Paypal</div>
+              <div style="border: 1px solid #e2e0d8; border-radius: 8px; padding: 8px; text-align: center; font-size: 0.7rem; font-weight: 700;">Crypto</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: HOW A PAYMENT WORKS -->
+  <section style="padding: 80px 0; border-top: 1px solid var(--stroke);">
+    <div class="wrap-container">
+      <h2 class="section-h2-peer">How a Payment Works</h2>
+      <p class="section-sub-peer">From your customer's side, it's fast and familiar.</p>
+
+      <div class="how-it-works-grid">
+        <div class="how-step-card">
+          <div class="step-number-mono">01</div>
+          <h3 style="font-family: var(--font-syne); font-size: 1.4rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px;">Open the Link</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">They open your checkout link and see the amount due in their preferred currency.</p>
+        </div>
+
+        <div class="how-step-card">
+          <div class="step-number-mono">02</div>
+          <h3 style="font-family: var(--font-syne); font-size: 1.4rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px;">Pay With Their Preferred App</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">They send via Venmo, Cash App, Revolut, Zelle or Robinhood Wallet—just like paying a friend.</p>
+        </div>
+
+        <div class="how-step-card">
+          <div class="step-number-mono">03</div>
+          <h3 style="font-family: var(--font-syne); font-size: 1.4rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px;">Confirm in Seconds</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Payments are cryptographically verified in under 15 seconds on Robinhood Chain.</p>
+        </div>
+
+        <div class="how-step-card">
+          <div class="step-number-mono">04</div>
+          <h3 style="font-family: var(--font-syne); font-size: 1.4rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px;">You're Paid</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">Directly to your non-custodial wallet. No holds, no waiting, no chargebacks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: SAFE BY DESIGN (WARM BEIGE BLOCK) -->
+  <section class="wrap-container">
+    <div class="safe-section-block">
+      <h2 style="font-family: var(--font-syne); font-size: clamp(32px, 4vw, 52px); font-weight: 800; text-transform: uppercase; margin-bottom: 8px; color: #0b0c0e;">
+        Safe By Design
+      </h2>
+      <p style="font-size: 1.1rem; color: #52525b; margin-bottom: 48px;">
+        How your money and your customers' data stay protected.
+      </p>
+
+      <div class="safe-grid-container">
+        <!-- Large Dark Box -->
+        <div class="safe-dark-box">
+          <h3 style="font-family: var(--font-syne); font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin-bottom: 16px; line-height: 1.1;">
+            Peer Never Holds Your Money
+          </h3>
+          <p style="font-size: 1.05rem; color: #a1a1aa; line-height: 1.6;">
+            Money moves straight from your customer to you. Peer never takes custody of funds, eliminating counterparty risk.
+          </p>
+        </div>
+
+        <!-- Right Column Features Grid -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+          <div>
+            <h4 style="font-family: var(--font-syne); font-size: 1.1rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; color: #0b0c0e;">You're Paid Instantly</h4>
+            <p style="font-size: 0.9rem; color: #52525b; line-height: 1.5;">The moment a payment verifies, the money is yours in real-time.</p>
+          </div>
+
+          <div>
+            <h4 style="font-family: var(--font-syne); font-size: 1.1rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; color: #0b0c0e;">Verified, Not Trusted</h4>
+            <p style="font-size: 0.9rem; color: #52525b; line-height: 1.5;">Every payment is confirmed by cryptographic proof before your order is marked paid.</p>
+          </div>
+
+          <div>
+            <h4 style="font-family: var(--font-syne); font-size: 1.1rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; color: #0b0c0e;">Credentials Stay Private</h4>
+            <p style="font-size: 0.9rem; color: #52525b; line-height: 1.5;">Customers sign in with their own provider over encrypted channels. Peer never sees a password.</p>
+          </div>
+
+          <div>
+            <h4 style="font-family: var(--font-syne); font-size: 1.1rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; color: #0b0c0e;">Higher Success Rate</h4>
+            <p style="font-size: 0.9rem; color: #52525b; line-height: 1.5;">Payments run on everyday platforms that settle instantly between people.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: INTEGRATE YOUR WAY -->
+  <section style="padding: 80px 0; border-top: 1px solid var(--stroke);">
+    <div class="wrap-container">
+      <h2 class="section-h2-peer">Integrate Your Way</h2>
+      <p class="section-sub-peer">Whichever route you pick, you can be taking payments in minutes.</p>
+
+      <div style="display: flex; flex-direction: column;">
+        
+        <div class="integration-list-row">
+          <div>
+            <h3 style="font-family: var(--font-syne); font-size: 1.4rem; font-weight: 800; text-transform: uppercase; margin-bottom: 4px;">WooCommerce</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Drop in the gateway plugin and start accepting P2P payments.</p>
+          </div>
+          <span class="badge-tag-spec">PLUGIN</span>
+        </div>
+
+        <div class="integration-list-row">
+          <div>
+            <h3 style="font-family: var(--font-syne); font-size: 1.4rem; font-weight: 800; text-transform: uppercase; margin-bottom: 4px;">Shopify</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Connect your storefront in minutes with zero code required.</p>
+          </div>
+          <span class="badge-tag-spec">PLUGIN</span>
+        </div>
+
+        <div class="integration-list-row">
+          <div>
+            <h3 style="font-family: var(--font-syne); font-size: 1.4rem; font-weight: 800; text-transform: uppercase; margin-bottom: 4px;">SDK & Custom Checkouts</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Docs, SDK and sandbox for your custom web and mobile app checkout flow.</p>
+          </div>
+          <span class="badge-tag-spec">SDK</span>
+        </div>
+
+        <div class="integration-list-row">
+          <div>
+            <h3 style="font-family: var(--font-syne); font-size: 1.4rem; font-weight: 800; text-transform: uppercase; margin-bottom: 4px;">Embedded Checkout</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Checkout that lives inside your site using 1-line HTML iframe snippet.</p>
+          </div>
+          <span class="badge-tag-spec">EMBED</span>
+        </div>
+
+        <div class="integration-list-row">
+          <div>
+            <h3 style="font-family: var(--font-syne); font-size: 1.4rem; font-weight: 800; text-transform: uppercase; margin-bottom: 4px;">Telegram Bot</h3>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Type /request to create an instant checkout link on mobile.</p>
+          </div>
+          <span class="badge-tag-spec">NO CODE</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: GET STARTED FAST (PRICING) -->
+  <section style="padding: 100px 0; border-top: 1px solid var(--stroke);">
+    <div class="wrap-container">
+      <h2 class="section-h2-peer">Get Started Fast</h2>
+      <p class="section-sub-peer">Free demo today. Custom pricing when you're ready to go live.</p>
+
+      <div class="pricing-grid-peer">
+        <!-- Demo Card -->
+        <div class="pricing-card-peer">
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 12px;">FREE</div>
+          <h3 style="font-family: var(--font-syne); font-size: 2.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 12px;">DEMO</h3>
+          <p style="color: var(--text-secondary); font-size: 1rem; margin-bottom: 32px;">
+            A full sandbox account: test orders, checkout preview, merchant dashboard.
+          </p>
+
+          <a href="dashboard.html" class="btn-peer-dark" style="width: 100%; text-align: center;">Try Sandbox Account →</a>
+        </div>
+
+        <!-- Concierge Card -->
+        <div class="pricing-card-peer offwhite">
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #71717a; text-transform: uppercase; margin-bottom: 12px;">CUSTOM PRICING</div>
+          <h3 style="font-family: var(--font-syne); font-size: 2.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 12px; color: #0b0c0e;">CONCIERGE</h3>
+          <p style="color: #52525b; font-size: 1rem; margin-bottom: 32px;">
+            Live payments with end-to-end support. A software fee built around your usage volume.
+          </p>
+
+          <a href="pricing.html" class="btn-peer-offwhite" style="width: 100%; background: #0b0c0e; color: #ffffff; text-align: center;">Talk to Sales →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-peer">
+    <div class="wrap-container">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; margin-bottom: 40px;">
+        <a href="index.html" class="brand-logo-peer">
+          <span>peer</span>
+          <span class="badge-pay">PAY</span>
+        </a>
+
+        <div style="display: flex; gap: 24px; font-family: var(--font-mono); font-size: 0.85rem;">
+          <a href="how-it-works.html">How It Works</a>
+          <a href="integrations.html">Integrations</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="faq.html">FAQ</a>
+          <a href="docs.html">Docs</a>
+          <a href="https://x.com/paylomoney_" target="_blank" style="color: var(--accent-green);">𝕏 @paylomoney_</a>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--stroke); padding-top: 24px; font-size: 0.8rem; color: var(--text-muted);">
+        <span>&copy; 2026 Peer Pay Inc. All rights reserved.</span>
+        <span>Built for Robinhood Chain Ecosystem</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

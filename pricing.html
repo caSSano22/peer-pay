@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pricing & Fees | Peer Pay</title>
+  <meta name="description" content="Zero setup fees, no monthly minimums. Transparent P2P payment processing on Robinhood Chain." />
+  <link rel="icon" type="image/x-icon" href="favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="navbar-peer">
+    <a href="index.html" class="brand-logo-peer">
+      <span>peer</span>
+      <span class="badge-pay">PAY</span>
+    </a>
+
+    <div class="desktop-nav-links" style="display: flex; align-items: center; gap: 16px;">
+      <nav class="nav-links-peer">
+        <a href="how-it-works.html" class="nav-link-peer">How It Works</a>
+        <a href="integrations.html" class="nav-link-peer">Integrations</a>
+        <a href="pricing.html" class="nav-link-peer active">Pricing</a>
+        <a href="faq.html" class="nav-link-peer">FAQ</a>
+        <a href="docs.html" class="nav-link-peer">Docs</a>
+      </nav>
+
+      <button class="btn-theme-toggle" onclick="togglePeerTheme()" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+        <span id="themeIcon">☀️</span>
+      </button>
+
+      <a href="dashboard.html" class="btn-peer-offwhite">Open Dashboard</a>
+    </div>
+  </header>
+
+  <div class="wrap-container" style="padding-top: 60px; padding-bottom: 120px;">
+    <h1 class="section-h2-peer">Simple, Transparent Pricing</h1>
+    <p class="section-sub-peer">No hidden fees, no interchange markups, no monthly minimums.</p>
+
+    <div class="pricing-grid-peer" style="margin-top: 48px;">
+      
+      <div class="pricing-card-peer">
+        <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">SELF-SERVE</div>
+        <h3 style="font-family: var(--font-syne); font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px;">0% Gateway Fee</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 24px;">
+          For merchants getting started with direct P2P customer payments on Robinhood Chain.
+        </p>
+
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; font-size: 0.95rem; color: var(--text-secondary);">
+          <li>✓ $0 Monthly account fee</li>
+          <li>✓ Unlimited checkout sessions</li>
+          <li>✓ Webhook & API access</li>
+          <li>✓ Self-custody wallet settlement</li>
+        </ul>
+
+        <a href="dashboard.html" class="btn-peer-dark" style="width: 100%; text-align: center;">Get Started Free →</a>
+      </div>
+
+      <div class="pricing-card-peer offwhite">
+        <div style="font-family: var(--font-mono); font-size: 0.8rem; color: #71717a; margin-bottom: 12px;">ENTERPRISE</div>
+        <h3 style="font-family: var(--font-syne); font-size: 2.2rem; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; color: #0b0c0e;">Concierge</h3>
+        <p style="color: #52525b; margin-bottom: 24px;">
+          Dedicated node infrastructure, SLA support, and automated treasury sweeps for high-volume merchants.
+        </p>
+
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; font-size: 0.95rem; color: #52525b;">
+          <li>✓ Custom SLA uptime contract</li>
+          <li>✓ Dedicated account strategist</li>
+          <li>✓ Custom webhook routing</li>
+          <li>✓ Fiat bank wire settlement</li>
+        </ul>
+
+        <button class="btn-peer-offwhite" style="width: 100%; background: #0b0c0e; color: #ffffff;" onclick="showPeerToast('📩 Enterprise team contacted!')">Contact Enterprise Team →</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

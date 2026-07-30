@@ -1,0 +1,482 @@
+/* ==========================================================================
+   PEER PAY — FIRST-CLASS CHECKOUT FOR UNDERSERVED BUSINESSES
+   Exact 1:1 Stylesheet for pay.peer.xyz (Robinhood Chain Ecosystem)
+   Fonts: Syne, Space Grotesk, Inter
+   Palette: Pitch Black (#0b0c0e), Off-White (#f4f3ef), Slate Muted (#8e8e93)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap');
+
+:root {
+  --bg-body: #0b0c0e;
+  --bg-card-dark: #14161a;
+  --bg-offwhite: #f4f3ef;
+  --bg-subtle: #1c1e24;
+
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-dark: #0b0c0e;
+  --text-muted: #71717a;
+
+  --badge-bg: #24252a;
+  --badge-text: #8e8e93;
+
+  --stroke: #24272e;
+  --stroke-light: #e2e0d8;
+
+  --accent-green: #22c55e;
+  --accent-blue: #3b82f6;
+
+  --font-syne: 'Syne', sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+  --font-sans: 'Inter', sans-serif;
+}
+
+[data-theme="light"] {
+  --bg-body: #f8f8f6;
+  --bg-card-dark: #ffffff;
+  --bg-offwhite: #14161a;
+  --bg-subtle: #eceae3;
+
+  --text-primary: #0b0c0e;
+  --text-secondary: #52525b;
+  --text-dark: #ffffff;
+  --text-muted: #71717a;
+
+  --badge-bg: #e4e4e7;
+  --badge-text: #3f3f46;
+
+  --stroke: #e4e4e7;
+  --stroke-light: #27272a;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  line-height: 1.5;
+  background-color: var(--bg-body);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Container */
+.wrap-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Header Navbar */
+.navbar-peer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 48px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 12, 14, 0.85);
+  backdrop-filter: blur(16px);
+}
+
+.brand-logo-peer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-syne);
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+}
+
+.badge-pay {
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.nav-links-peer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card-dark);
+  border: 1px solid var(--stroke);
+  border-radius: 9999px;
+  padding: 6px;
+}
+
+.nav-link-peer {
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.nav-link-peer:hover, .nav-link-peer.active {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Buttons */
+.btn-peer-offwhite {
+  background: var(--bg-offwhite);
+  color: var(--text-dark);
+  padding: 14px 28px;
+  border-radius: 9999px;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-peer-offwhite:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-peer-dark {
+  background: var(--bg-card-dark);
+  color: var(--text-primary);
+  padding: 14px 28px;
+  border-radius: 9999px;
+  border: 1px solid var(--stroke);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-peer-dark:hover {
+  border-color: var(--text-primary);
+}
+
+/* Theme Toggle Button */
+.btn-theme-toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--stroke);
+  background: var(--bg-card-dark);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+}
+
+/* Hero Section */
+.hero-peer {
+  padding: 60px 0 100px;
+}
+
+.hero-grid-peer {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+h1.hero-h1-peer {
+  font-family: var(--font-syne);
+  font-size: clamp(38px, 4.5vw, 64px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+}
+
+.hero-subtitle-peer {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 580px;
+  margin-bottom: 36px;
+}
+
+/* Hero Right Checkout Terminal Mockup Widget */
+.terminal-card-container {
+  position: relative;
+}
+
+.desktop-checkout-card {
+  background: #f4f3ef;
+  color: #0b0c0e;
+  border-radius: 28px;
+  padding: 32px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+.mobile-phone-mockup {
+  position: absolute;
+  left: -40px;
+  bottom: -40px;
+  width: 260px;
+  background: #ffffff;
+  color: #0b0c0e;
+  border: 8px solid #1c1d22;
+  border-radius: 36px;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Step Bar */
+.step-bar-checkout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e2e0d8;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.step-item-chk {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #71717a;
+}
+
+.step-item-chk.active {
+  color: #0b0c0e;
+  font-weight: 700;
+}
+
+/* Payment Method Item */
+.payment-method-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border: 1px solid #e2e0d8;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.payment-method-row:hover, .payment-method-row.selected {
+  border-color: #0b0c0e;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Section Title Typography */
+.section-h2-peer {
+  font-family: var(--font-syne);
+  font-size: clamp(32px, 3.8vw, 52px);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.section-sub-peer {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 48px;
+}
+
+/* How It Works Grid */
+.how-it-works-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+
+  border-top: 1px solid var(--stroke);
+  padding-top: 48px;
+  margin-top: 48px;
+}
+
+.how-step-card {
+  border-bottom: 1px solid var(--stroke);
+  padding-bottom: 32px;
+}
+
+.step-number-mono {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+/* Safe By Design Section */
+.safe-section-block {
+  background: #f4f3ef;
+  color: #0b0c0e;
+  border-radius: 36px;
+  padding: 64px 48px;
+  margin: 100px 0;
+}
+
+.safe-grid-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+}
+
+.safe-dark-box {
+  background: #0b0c0e;
+  color: #ffffff;
+  border-radius: 28px;
+  padding: 48px;
+}
+
+/* Integration Specs Row */
+.integration-list-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--stroke);
+}
+
+.badge-tag-spec {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--bg-card-dark);
+  color: var(--text-secondary);
+  border: 1px solid var(--stroke);
+}
+
+/* Pricing Section Cards */
+.pricing-grid-peer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.pricing-card-peer {
+  border: 1px solid var(--stroke);
+  border-radius: 28px;
+  padding: 48px;
+  background: var(--bg-card-dark);
+}
+
+.pricing-card-peer.offwhite {
+  background: #f4f3ef;
+  color: #0b0c0e;
+  border: none;
+}
+
+/* Footer */
+footer.footer-peer {
+  padding: 80px 0 40px;
+  border-top: 1px solid var(--stroke);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Mobile Drawer & Responsive */
+.btn-hamburger-peer {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--stroke);
+  background: transparent;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-hamburger-peer span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--text-primary);
+  margin: 3px 0;
+}
+
+.mobile-menu-drawer-peer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(11, 12, 14, 0.98);
+  backdrop-filter: blur(16px);
+  padding: 32px 24px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mobile-menu-drawer-peer.open {
+  display: flex;
+}
+
+@media (max-width: 1024px) {
+  .hero-grid-peer { grid-template-columns: 1fr; gap: 48px; }
+  .safe-grid-container { grid-template-columns: 1fr; gap: 36px; }
+  .pricing-grid-peer { grid-template-columns: 1fr; }
+  .mobile-phone-mockup { display: none; }
+}
+
+@media (max-width: 768px) {
+  .nav-links-peer { display: none !important; }
+  .btn-hamburger-peer { display: flex !important; }
+  .navbar-peer { padding: 18px 24px; }
+  .wrap-container { padding: 0 20px; }
+  .how-it-works-grid { grid-template-columns: 1fr; }
+  .safe-section-block { padding: 36px 24px; border-radius: 24px; }
+  .safe-dark-box { padding: 28px; }
+  .desktop-checkout-card { padding: 20px; }
+}

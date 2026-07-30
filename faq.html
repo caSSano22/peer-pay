@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frequently Asked Questions | Peer Pay</title>
+  <meta name="description" content="Common questions regarding Peer Pay, P2P payments, and Robinhood Chain settlement." />
+  <link rel="icon" type="image/x-icon" href="favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="navbar-peer">
+    <a href="index.html" class="brand-logo-peer">
+      <span>peer</span>
+      <span class="badge-pay">PAY</span>
+    </a>
+
+    <div class="desktop-nav-links" style="display: flex; align-items: center; gap: 16px;">
+      <nav class="nav-links-peer">
+        <a href="how-it-works.html" class="nav-link-peer">How It Works</a>
+        <a href="integrations.html" class="nav-link-peer">Integrations</a>
+        <a href="pricing.html" class="nav-link-peer">Pricing</a>
+        <a href="faq.html" class="nav-link-peer active">FAQ</a>
+        <a href="docs.html" class="nav-link-peer">Docs</a>
+      </nav>
+
+      <button class="btn-theme-toggle" onclick="togglePeerTheme()" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+        <span id="themeIcon">☀️</span>
+      </button>
+
+      <a href="dashboard.html" class="btn-peer-offwhite">Open Dashboard</a>
+    </div>
+  </header>
+
+  <div class="wrap-container" style="padding-top: 60px; padding-bottom: 120px; max-width: 900px;">
+    <h1 class="section-h2-peer">Merchant FAQ</h1>
+    <p class="section-sub-peer">Everything you need to know about accepting Peer Pay checkouts.</p>
+
+    <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 48px;">
+      
+      <div style="background: var(--bg-card-dark); border: 1px solid var(--stroke); border-radius: 16px; padding: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="toggleFaqPeer(this)">
+          <h3 style="font-family: var(--font-syne); font-size: 1.2rem; font-weight: 800;">Does Peer Pay hold my money?</h3>
+          <span class="faq-icon" style="font-size: 1.5rem; font-weight: 700; color: var(--text-muted);">+</span>
+        </div>
+        <div style="display: none; margin-top: 16px; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+          No. Peer Pay is completely non-custodial. Funds move directly from your customer to your self-custody wallet or linked bank account. Peer never touches or holds merchant capital.
+        </div>
+      </div>
+
+      <div style="background: var(--bg-card-dark); border: 1px solid var(--stroke); border-radius: 16px; padding: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="toggleFaqPeer(this)">
+          <h3 style="font-family: var(--font-syne); font-size: 1.2rem; font-weight: 800;">How long does payment verification take?</h3>
+          <span class="faq-icon" style="font-size: 1.5rem; font-weight: 700; color: var(--text-muted);">+</span>
+        </div>
+        <div style="display: none; margin-top: 16px; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+          Most payments verify in under 15 seconds. Once verified, webhooks automatically update your order status to PAID in your e-commerce store.
+        </div>
+      </div>
+
+      <div style="background: var(--bg-card-dark); border: 1px solid var(--stroke); border-radius: 16px; padding: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="toggleFaqPeer(this)">
+          <h3 style="font-family: var(--font-syne); font-size: 1.2rem; font-weight: 800;">What payment apps are supported?</h3>
+          <span class="faq-icon" style="font-size: 1.5rem; font-weight: 700; color: var(--text-muted);">+</span>
+        </div>
+        <div style="display: none; margin-top: 16px; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+          Customers can pay using Venmo, Cash App, Revolut, Wise, Zelle, PayPal, Chime, Monzo, and native Robinhood Wallet USD-R / USDC stablecoins.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

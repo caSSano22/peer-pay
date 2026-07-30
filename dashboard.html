@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Merchant Terminal Dashboard | Peer Pay</title>
+  <meta name="description" content="Manage Peer Pay payment sessions, view live settlement feeds, and copy API keys on Robinhood Chain." />
+  <link rel="icon" type="image/x-icon" href="favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body style="padding-top: 20px;">
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="navbar-peer">
+    <a href="index.html" class="brand-logo-peer">
+      <span>peer</span>
+      <span class="badge-pay">PAY</span>
+    </a>
+
+    <div class="desktop-nav-links" style="display: flex; align-items: center; gap: 16px;">
+      <nav class="nav-links-peer">
+        <a href="index.html" class="nav-link-peer">Overview</a>
+        <a href="how-it-works.html" class="nav-link-peer">How It Works</a>
+        <a href="integrations.html" class="nav-link-peer">Integrations</a>
+        <a href="pricing.html" class="nav-link-peer">Pricing</a>
+        <a href="docs.html" class="nav-link-peer">Docs</a>
+      </nav>
+
+      <button class="btn-theme-toggle" onclick="togglePeerTheme()" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+        <span id="themeIcon">☀️</span>
+      </button>
+
+      <button class="btn-peer-offwhite" onclick="showPeerToast('⚡ Connected to Robinhood Wallet 0x71C7...976F')">0x71C7...976F</button>
+    </div>
+  </header>
+
+  <div class="wrap-container" style="padding-top: 40px; padding-bottom: 120px;">
+    
+    <!-- Top Summary Banner -->
+    <div style="background: var(--bg-card-dark); border: 1px solid var(--stroke); border-radius: 28px; padding: 32px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+      <div>
+        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-green); font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">
+          • Robinhood Chain Mainnet • Live Node Connected
+        </div>
+        <h1 style="font-family: var(--font-syne); font-size: 2rem; font-weight: 800; text-transform: uppercase; color: var(--text-primary);">
+          Merchant Terminal Portal
+        </h1>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 4px;">
+          Generate instant payment links, track zero-fee settlements, and manage API keys.
+        </p>
+      </div>
+
+      <button class="btn-peer-offwhite" onclick="createInstantLinkPeer()">⚡ Create Payment Link</button>
+    </div>
+
+    <!-- Dashboard Main Grid -->
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px;">
+      
+      <div style="background: var(--bg-card-dark); border: 1px solid var(--stroke); border-radius: 20px; padding: 24px;">
+        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase;">TOTAL VOLUME (30D)</div>
+        <div style="font-family: var(--font-syne); font-size: 2.2rem; font-weight: 800; margin-top: 8px;">$48,920.00</div>
+        <div style="font-size: 0.8rem; color: var(--accent-green); font-family: var(--font-mono); margin-top: 4px;">+18.4% vs last month</div>
+      </div>
+
+      <div style="background: var(--bg-card-dark); border: 1px solid var(--stroke); border-radius: 20px; padding: 24px;">
+        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase;">VERIFIED CHECKOUTS</div>
+        <div style="font-family: var(--font-syne); font-size: 2.2rem; font-weight: 800; margin-top: 8px;">1,428</div>
+        <div style="font-size: 0.8rem; color: var(--text-secondary); font-family: var(--font-mono); margin-top: 4px;">Avg verification: 4.8s</div>
+      </div>
+
+      <div style="background: var(--bg-card-dark); border: 1px solid var(--stroke); border-radius: 20px; padding: 24px;">
+        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase;">SAVED PROCESSING FEES</div>
+        <div style="font-family: var(--font-syne); font-size: 2.2rem; font-weight: 800; margin-top: 8px; color: var(--accent-green);">$1,418.68</div>
+        <div style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono); margin-top: 4px;">0% gateway markup</div>
+      </div>
+
+    </div>
+
+    <!-- Live Transactions Feed Table -->
+    <div style="background: var(--bg-card-dark); border: 1px solid var(--stroke); border-radius: 24px; padding: 32px;">
+      <h3 style="font-family: var(--font-syne); font-size: 1.4rem; font-weight: 800; text-transform: uppercase; margin-bottom: 20px;">Recent Checkout Settlements</h3>
+
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 0.88rem;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--stroke); text-align: left; color: var(--text-muted);">
+              <th style="padding: 12px;">ORDER ID</th>
+              <th style="padding: 12px;">AMOUNT</th>
+              <th style="padding: 12px;">METHOD</th>
+              <th style="padding: 12px;">SETTLEMENT TIME</th>
+              <th style="padding: 12px;">STATUS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--stroke);">
+              <td style="padding: 16px;">#ORD-90821</td>
+              <td style="font-weight: 700;">$1,337.00 USDC</td>
+              <td>Venmo</td>
+              <td style="color: var(--text-secondary);">4.2s ago</td>
+              <td><span style="color: var(--accent-green); font-weight: 700;">✓ VERIFIED</span></td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--stroke);">
+              <td style="padding: 16px;">#ORD-90820</td>
+              <td style="font-weight: 700;">$88.88 USDC</td>
+              <td>Robinhood Wallet</td>
+              <td style="color: var(--text-secondary);">2 mins ago</td>
+              <td><span style="color: var(--accent-green); font-weight: 700;">✓ VERIFIED</span></td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--stroke);">
+              <td style="padding: 16px;">#ORD-90819</td>
+              <td style="font-weight: 700;">$250.00 USDC</td>
+              <td>Cash App</td>
+              <td style="color: var(--text-secondary);">14 mins ago</td>
+              <td><span style="color: var(--accent-green); font-weight: 700;">✓ VERIFIED</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    function createInstantLinkPeer() {
+      const link = 'https://pay.peer.xyz/pay/chk_' + Math.random().toString(36).substring(2, 9);
+      navigator.clipboard.writeText(link);
+      showPeerToast('📋 Instant Checkout Link copied to clipboard!');
+    }
+  </script>
+</body>
+</html>
